@@ -422,6 +422,14 @@
         .dark-mode .favorite-list-item:hover { background-color: #3a3a3a; }
         .remove-favorite { background: none; border: none; color: #dc3545; font-weight: 800; cursor: pointer; font-size: 1rem; margin-left: 10px; }
         .remove-favorite:hover { text-decoration: underline; }
+
+        /* تنسيقات نافذة الانذارات والغيابات */
+        #shared-warnings-list { list-style-type: none; padding: 0; margin-top: 20px; }
+        #shared-warnings-list .stage-item { border-right: 5px solid #dc3545; /* لون أحمر للإنذارات */ }
+        #shared-warnings-list .stage-item:hover { transform: translateX(-5px); }
+        #admin-actions { border-top: 1px solid var(--input-bg); padding-top: 20px; margin-top: 20px; }
+        #admin-actions h4 { color: #dc3545; margin-bottom: 15px; }
+
     </style>
 </head>
 <body>
@@ -520,9 +528,15 @@
                     <span class="button-text">مفضلتي</span>
                 </button>
                 
-                 <button class="grid-button" onclick="openModal('settings')">
-                    <span class="button-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                 <button class="grid-button" onclick="openModal('warningsPunishments')">
+                    <span class="button-icon" style="color: #dc3545;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </span>
+                    <span class="button-text">الإنذارات والغيابات</span>
+                </button>
+                <button class="grid-button" onclick="openModal('settings')">
+                     <span class="button-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0-.33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1.51-1V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                     </span>
                     <span class="button-text">الإعدادات</span>
                 </button>
@@ -599,7 +613,49 @@
             </p>
         </div>
     </div>
-    
+
+    <div id="warningsPunishments" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('warningsPunishments')">&times;</span>
+            <h2><span style="font-size: 1.5rem; color: #dc3545; margin-left: 10px;">⚠️</span> الإنذارات والغيابات (سجل مشترك)</h2>
+            
+            <div class="content-box">
+                <h4>ملاحظة هامة:</h4>
+                <p>هذا السجل يظهر الإنذارات الرسمية وحالات الغياب المسجلة من قبل الإدارة. يرجى الاطلاع عليه دورياً.</p>
+            </div>
+            
+            <ul id="shared-warnings-list" class="stage-list">
+                <li class="stage-item">
+                    <span>الطالب: أحمد سعيد (غ. م.)</span>
+                    <span style="color: #dc3545;">سجل: غياب غير مبرر</span>
+                </li>
+                 <li class="stage-item">
+                    <span>الطالب: علي محمود (إنذار)</span>
+                    <span style="color: #dc3545;">سجل: مخالفة للزي المدرسي</span>
+                </li>
+                <li class="stage-item">
+                    <span>الطالب: محمد جاسم (غ. م.)</span>
+                    <span style="color: #dc3545;">سجل: غياب غير مبرر 3 أيام</span>
+                </li>
+                 <li class="stage-item">
+                    <span>الطالب: ايهم فراس جمال (إنذار)</span>
+                    <span style="color: #dc3545;">سجل: إنذار رقم 1 (تأخير)</span>
+                </li>
+            </ul>
+            
+            <div id="admin-actions">
+                 <h4 style="color: var(--secondary-color); margin-bottom: 10px;">لإدارة السجلات (للكادر فقط):</h4>
+                 <div class="input-group">
+                    <label for="admin-search-student-name">اسم الطالب المراد إضافة سجل له:</label>
+                    <input type="text" id="admin-search-student-name" placeholder="أدخل اسم الطالب بالكامل">
+                </div>
+                <p id="admin-search-result" style="color: #dc3545; font-weight: 700; margin-top: 10px; display: none;">الرجاء إدخال اسم الطالب للبحث.</p>
+                <button class="login-button" style="background: linear-gradient(135deg, #00bcd4, #0077b5); margin-top: 15px;" onclick="searchAndEditAbsences()">
+                    بحث وإضافة سجل جديد
+                </button>
+            </div>
+        </div>
+    </div>
     <div id="technicalSupport" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeModal('technicalSupport')">&times;</span>
@@ -761,6 +817,7 @@
                     5. استخدم أيقونة **"👤"** للوصول إلى بيانات حسابك. <br>
                     6. استخدم أيقونة **"🌙"** لتبديل وضع العرض.
                     7. استخدم زر **"🤖"** للوصول إلى **المساعد الذكي** لحل الأسئلة.
+                    8. استخدم زر **"⚠️"** للدخول إلى سجل **الإنذارات والغيابات** المشترك.
                 </p>
             </div>
         </div>
@@ -1136,6 +1193,10 @@
                 updateProfileModal(); 
             } else if (modalId === 'myFavorites') {
                 displayFavorites();
+            } else if (modalId === 'warningsPunishments') {
+                // دالة محاكاة لتحديث قائمة الإنذارات عند الفتح
+                // يمكنك تجاهل هذا إذا لم تكن بحاجة لقائمة إنذارات تفاعلية
+                updateSimulatedWarnings();
             }
         }
         
@@ -1275,8 +1336,14 @@
                         </button>
                     `;
                     // التعديل: ربط عنصر المفضلة بدالة فتح القارئ
-                    const stageNumKey = fav.stageName.split(' ')[0] === 'الثالث' ? '3' : (fav.stageName.split(' ')[0] === 'الثاني' ? '2' : '1');
-                    const book = vocationalSections[fav.sectionKey].stages[`${fav.sectionKey}_${stageNumKey}`]?.books.find(b => b.id === fav.id);
+                    // نحتاج للبحث عن الكائن الكامل للمادة لضمان وجود الرابط
+                    let book = null;
+                    for (const stageKey in vocationalSections[fav.sectionKey].stages) {
+                         const stage = vocationalSections[fav.sectionKey].stages[stageKey];
+                         book = stage.books.find(b => b.id === fav.id);
+                         if (book) break;
+                    }
+                    
                     if (book && book.link && book.link !== '#') {
                         listItem.onclick = () => openBookInReader(book);
                     }
@@ -1511,9 +1578,107 @@
         }
         
         // ===========================================
-        // ==    دالة محاكاة البحث والتعديل (محذوفة)    ==
+        // ==    دالة محاكاة البحث والتعديل (مضافة بناءً على طلبك)    ==
         // ===========================================
 
+        const simulatedWarningsData = [
+            { student: "أحمد سعيد", record: "غياب غير مبرر", date: "2025/11/01" },
+            { student: "علي محمود", record: "مخالفة للزي المدرسي", date: "2025/10/28" },
+            { student: "محمد جاسم", record: "غياب غير مبرر 3 أيام", date: "2025/10/25" },
+            { student: "ايهم فراس جمال", record: "إنذار رقم 1 (تأخير)", date: "2025/10/10" },
+        ];
+        
+        function updateSimulatedWarnings() {
+             const sharedList = document.getElementById('shared-warnings-list');
+             if (!sharedList) return;
+             
+             // مسح القائمة الحالية (لتجنب التكرار عند إعادة فتح الـ modal)
+             sharedList.innerHTML = '';
+             
+             simulatedWarningsData.forEach(data => {
+                  const listItem = document.createElement('li');
+                  listItem.classList.add('stage-item');
+                  listItem.innerHTML = `
+                      <span>الطالب: ${data.student}</span>
+                      <span style="color: #dc3545;">سجل: ${data.record} (تاريخ: ${data.date})</span>
+                  `;
+                  sharedList.appendChild(listItem);
+             });
+        }
+
+
+        /**
+         * دالة لمحاكاة البحث عن طالب بالاسم وفتح نافذة تعديل وهمية.
+         * ملاحظة: تتطلب قاعدة بيانات حقيقية للتطبيق الفعلي.
+         */
+        function searchAndEditAbsences() {
+            const studentNameInput = document.getElementById('admin-search-student-name');
+            const studentName = studentNameInput.value.trim();
+            const searchResultElement = document.getElementById('admin-search-result');
+            const sharedList = document.getElementById('shared-warnings-list');
+
+            // قائمة محاكاة للطلاب المسجلين
+            const studentsDatabase = [
+                "أحمد سعيد",
+                "علي محمود",
+                "سارة خليل",
+                "محمد جاسم",
+                "ايهم فراس جمال" // اسم المبرمج للتجربة
+            ];
+
+            if (studentName === "") {
+                searchResultElement.textContent = "الرجاء إدخال اسم الطالب للبحث.";
+                searchResultElement.style.display = 'block';
+                return;
+            }
+            
+            // إخفاء رسالة الخطأ قبل البحث
+            searchResultElement.style.display = 'none';
+
+            // التحقق من وجود الاسم (البحث يجب أن يكون متطابقاً للمحاكاة)
+            const foundStudent = studentsDatabase.find(name => name === studentName);
+
+            if (foundStudent) {
+                // إذا تم العثور على الطالب، افتح نافذة تعديل وهمية
+                const studentRecord = getStudentSimulatedRecord(foundStudent);
+                
+                const newWarning = prompt(`تم العثور على سجل الطالب: ${foundStudent}. 
+سجله الحالي (محاكاة): ${studentRecord.warnings} إنذار و ${studentRecord.absences} يوم غياب.
+
+أدخل الآن أي إنذار أو غياب جديد لهذا الطالب:`);
+
+                if (newWarning !== null && newWarning.trim() !== "") {
+                    // محاكاة إضافة السجل الجديد إلى القائمة المشتركة
+                    const today = new Date().toLocaleDateString('ar-IQ', { year: 'numeric', month: '2-digit', day: '2-digit' });
+                    
+                    const newRecord = { student: foundStudent, record: newWarning.trim(), date: today };
+                    simulatedWarningsData.unshift(newRecord); // إضافة السجل الجديد في البداية
+                    
+                    updateSimulatedWarnings(); // إعادة رسم القائمة
+
+                    alert(`تمت إضافة السجل بنجاح للطالب ${foundStudent}. هذا السجل سيظهر الآن للجميع في القائمة المشتركة.`);
+                } else if (newWarning !== null) {
+                     alert(`لم يتم إضافة سجل جديد للطالب ${foundStudent}.`);
+                }
+                
+            } else {
+                // إذا لم يتم العثور على الطالب
+                searchResultElement.textContent = `لم يتم العثور على الطالب: "${studentName}". يرجى التأكد من كتابة الاسم بالكامل.`;
+                searchResultElement.style.display = 'block';
+            }
+        }
+
+        /**
+         * دالة محاكاة للحصول على سجل طالب
+         */
+        function getStudentSimulatedRecord(name) {
+            // بسيطة لغرض المحاكاة
+            if (name.includes('أحمد سعيد')) return { warnings: 1, absences: 0 };
+            if (name.includes('علي محمود')) return { warnings: 0, absences: 5 };
+            if (name.includes('سارة خليل')) return { warnings: 1, absences: 0 };
+            if (name.includes('ايهم فراس جمال')) return { warnings: 2, absences: 0 };
+            return { warnings: 0, absences: 0 };
+        }
         
         // تهيئة الوضع الليلي/النهاري وحالة الدخول عند التحميل 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1556,6 +1721,9 @@
             if (sectionsContainer) {
                  populateSections();
             }
+            
+            // تهيئة قائمة الانذارات
+            updateSimulatedWarnings();
         });
 
         // إغلاق النافذة عند النقر خارجها
@@ -1568,6 +1736,16 @@
         // ربط زر تبديل الوضع الخارجي بدالة التبديل
         if (modeToggle) modeToggle.addEventListener('click', toggleDarkMode);
         
+        // ربط حقل البحث في نافذة الإدارة بحدث الإدخال
+        const adminSearchInput = document.getElementById('admin-search-student-name');
+        if (adminSearchInput) {
+            adminSearchInput.addEventListener('keyup', (event) => {
+                if (event.keyCode === 13) {
+                    searchAndEditAbsences();
+                }
+            });
+        }
+
     </script>
 </body>
 </html>
